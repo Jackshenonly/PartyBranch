@@ -1,0 +1,106 @@
+<!doctype html>
+<title>jackshen is cool</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=page>
+
+  <h1>信息学院学生第二党支部工作绩效测评</h1>
+  <div class=metanav>
+    <a href="{{ url_for('branch_profile') }}">简介</a>
+  {% if not session.username %}
+    
+    <a href="{{ url_for('login') }}">登录</a>
+  {% else %}
+    <a href="{{url_for('show_lists')}}">党员测评</a>
+    <a href="{{url_for('performance')}}">绩效测评</a>
+    <a href="{{ url_for('logout') }}">退出</a>
+  {% endif %}
+  </div>
+  <div class=score>
+  <table rules = all>
+    <tr>
+      <td>对党支部发挥政治核心和战斗堡垒作用的满意度。</td>
+      <td>对党支部团结合作的满意度。</td>
+      <td>对党支部密切联系基层，服务、关怀本支部所在相关班级的党员、群众，决策民主、办事公道的满意度。</td>
+      <td>对党员立足岗位发挥先锋模范作用的满意度</td>
+      <td>对党支部及其成员廉洁自律的满意度。</td>
+    </tr>
+    
+    
+  <tr>
+
+        <td>
+        <select  id ="1" onchange = f('1')>
+          <option value = 20>满意（20）</option>
+          <option value = 16>基本满意（16）</option>
+          <option value = 12>一般（12）</option>
+          <option value = 0>不满意（0）</option>
+
+        </select>
+      </td>
+      <td>
+                <select id ="2" onchange = f('2')>
+          <option value = 20>满意（20）</option>
+          <option value = 16>基本满意（16）</option>
+          <option value = 12>一般（12）</option>
+          <option value = 0>不满意（0）</option>
+        
+        </select>
+      </td>
+      <td>
+                <select id ="3" onchange = f('3')>
+          <option value = 20>满意（20）</option>
+          <option value = 16>基本满意（16）</option>
+          <option value = 12>一般（12）</option>
+          <option value = 0>不满意（0）</option>
+        </select>
+      </td>
+      <td>
+                <select  id ="4" onchange = f('4')>
+          <option value = 20>满意（20）</option>
+          <option value = 16>基本满意（16）</option>
+          <option value = 12>一般（12）</option>
+          <option value = 0>不满意（0）</option>
+        </select>
+      </td>
+      <td>
+                <select id ="5" onchange = f('5')>
+          <option value = 20>满意（20）</option>
+          <option value = 16>基本满意（16）</option>
+          <option value = 12>一般（12）</option>
+          <option value = 0>不满意（0）</option>
+        </select>
+      </td>
+     
+  </tr>
+  <tr>
+     <td colspan = 5 align = center>
+    <form action = "{{url_for('add_perf')}}" method = post>
+    <input id = "in1" type = text name=mm1 value = 20 size = 21 > 
+    <input id = "in2" type = text name=mm2 value = 20 size = 21 > 
+    <input id = "in3" type = text name=mm3 value = 20 size = 21 > 
+    <input id = "in4" type = text name=mm4 value = 20 size = 21 > 
+    <input id = "in5" type = text name=mm5 value = 20 size = 21 > 
+    <br>
+     <input align=center type=submit value=提交 >
+    </form>
+    </td>
+  </tr>
+  <tr><td colspan = 5 align = center><b>各项平均分</b></tr>
+  <tr>
+    {% for data in datas %}
+    <td>{{data}}</td>
+    {% endfor %}
+  </tr>
+  <tr><td colspan = 5 align = center><b>平均总分</b></tr>
+  <tr><td colspan = 5 align = center><b>{{total}}</b></tr>
+<script>
+function f(obj)
+{
+  var str = "in"+obj;
+  var tmp = document.getElementById(obj).value;
+  document.getElementById(str).value = tmp;
+
+}
+</script>
+  </table>
+  </div>

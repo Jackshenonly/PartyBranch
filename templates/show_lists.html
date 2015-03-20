@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block body %}
+
+  <table rules = all>
+    <tr class = tr1>
+      <th>班级</th>
+      <th>姓名</th>
+      <th>性别</th>
+      <th>所属支部</th>
+      <th>政治面貌</th>
+      <th>平均民意得分</th>
+      <th>评价和历史评价</th>
+    </tr>
+  {% for communist in lists %}
+    <tr class = score>
+	<td>{{ communist.major}}</td>
+	<td>{{ communist.name}}</td>
+	<td>{{ communist.sex}}</td>
+	<td>{{ communist.depart }}</td>
+	<td>{{ communist.status }}</td>
+	<td>{{ communist.average}}</td>
+	<td class = mytd><a href={{url_for('show_comments',cname = communist.name)}}>评价或查看其它评价</a></td>
+  {% else %}
+  {% endfor %}
+  </table>
+{% endblock %}
