@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 from __future__ import with_statement
 from config import load_config #绝对导入
 from sqlite3 import dbapi2 as sqlite3
@@ -154,4 +154,4 @@ def add_perf():
 
 if __name__ == '__main__':
     #app.debug = True
-    app.run('0.0.0.0',9000)
+    app.run('0.0.0.0')
