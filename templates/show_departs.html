@@ -1,0 +1,14 @@
+{% extends "layout.html"%}
+{% block body%}
+{% if session.sadmin %}
+<div class=metanav>
+	<a href ={{url_for('show_admin')}}>添加管理员</a>
+</div>
+{% endif %}
+<ul>
+{%for depart in departs%}
+<li><a href = {{url_for('show_lists',depart = depart[0])}}>{{ depart[0]}}</a>
+{%endfor%}
+</ul>
+
+{%endblock%}

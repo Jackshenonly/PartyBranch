@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block body %}
+<ul>
+<li>Id:{{info[0]}}
+<li>No:{{info[1]}}
+<li>Name:{{info[2]}}
+	<form action = {{url_for('personal_modify',username = session.username)}} method = post>
+<li>password:<input type=text name=password value ={{info[3]}}><strong class = jack>Please Remember It!</strong>
+<li>NickName:<input type=text name=NickName value ="{{info[4]}}">
+<li>Sex:{{info[5]}}
+<li>Major:{{info[6]}}
+<li><input type = submit value = Modify>
+    </form>
+</ul>
+{% endblock %}

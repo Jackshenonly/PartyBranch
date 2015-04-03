@@ -1,11 +1,15 @@
 {% extends "layout.html" %}
 {% block body %}
+
   {% if session.username %}
+  <div class=metanav>
+  <a href = {{url_for('show_lists',depart = session.depart)}}>返回当前支部</a>
+  </div>
   <p class = mytime>对  <b>{{cname}}</b>  的评价</p>
-    <form action="{{ url_for('add_comments',cname=cname) }}" method=post class=add-entry>
+    <form action="{{ url_for('add_comments',cname=cname) }}" method=post class=add-entry  oninput="show_score.value=parseInt(tem.value)" name = myform>
       <dl>
-        <dt><b>Score:</b>
-        <dd><input type=text size=10 name=score>0~100之间
+        <dt><b>Score:</b><output name = "show_score" for="tem"></output><progress>
+        <dd>0<input type=range name="score" id='tem' value = 80>100
           <p class = error>{{error}}</p>
         <dt><b>comment:</b>
         <dd><textarea name=text rows=5 cols=40></textarea>
@@ -15,8 +19,8 @@
   {% endif %}
   <ul class=entries>
   {% for comment in comments %}
-    <li class = mytime>{{comment.date}}  By  <b>{{ comment.name }}</b>
-    <li class = score>Score:<b>{{comment.score}}</b><br>{{ comment.text|safe }}
+    <li class = mytime>{{comment[2]}}  By  <b>{{ comment[0]}}</b>
+    <li class = score>Score:<b>{{comment[1]}}</b><br>{{ comment[3]|safe }}
   {% else %}
     <li><em>Unbelievable.  No commnet here so far!</em>
   {% endfor %}

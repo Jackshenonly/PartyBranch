@@ -1,0 +1,10 @@
+{% extends "layout.html"%}
+{% block body%}
+<form action ={{url_for("publish")}} method = post>
+	标题:<input type = text name = title></title><br>
+	作者:<i>{{session.username}}</i>
+	<p>内容:</p><textarea   name = text rows=20 cols = 80></textarea>
+	<input type =submit value = 发布 ></<input>
+</form>
+
+{% endblock %}

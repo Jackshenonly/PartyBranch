@@ -1,5 +1,9 @@
 {% extends "layout.html" %}
 {% block body %}
+<div class = metanav>
+<a href="{{ url_for('branch_profile') }}">简介</a>
+<a href="{{url_for('performance')}}">绩效测评</a>  
+ </div> 
 
   <table rules = all>
     <tr class = tr1>
@@ -13,13 +17,13 @@
     </tr>
   {% for communist in lists %}
     <tr class = score>
-	<td>{{ communist.major}}</td>
-	<td>{{ communist.name}}</td>
-	<td>{{ communist.sex}}</td>
-	<td>{{ communist.depart }}</td>
-	<td>{{ communist.status }}</td>
-	<td>{{ communist.average}}</td>
-	<td class = mytd><a href={{url_for('show_comments',cname = communist.name)}}>评价或查看其它评价</a></td>
+	<td>{{ communist[0]}}</td>
+	<td>{{ communist[1]}}</td>
+	<td>{{ communist[2]}}</td>
+	<td>{{ communist[3] }}</td>
+	<td>{{ communist[4] }}</td>
+	<td>{{ communist[5]}}</td>
+	<td class = mytd><a href={{url_for('show_comments',cname = communist[1])}}>评价或查看其它评价</a></td>
   {% else %}
   {% endfor %}
   </table>

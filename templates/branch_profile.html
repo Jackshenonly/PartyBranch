@@ -1,21 +1,7 @@
-<!doctype html>
-<title>jackshen is cool</title>
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-<div class=page>
-
-  <h1>信息学院学生第二党支部简介</h1>
-  <div class=metanav>
-    <a href="{{ url_for('branch_profile') }}">简介</a>
-  {% if not session.username %}
-    
-    <a href="{{ url_for('login') }}">登录</a>
-  {% else %}
-    <a href="{{url_for('show_lists')}}">党员测评</a>
-    <a href="{{url_for('performance')}}">绩效测评</a>
-    <a href="{{ url_for('logout') }}">退出</a>
-  {% endif %}
-  </div>
+{%extends "layout.html" %}
+{%block body%}
   <div class=mytime>
   	    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp信息学院学生第二党支部成立于2014年11月，现有党员3人，预备党员10人。在校党委和学院党总支领导下，我们以邓小平理论和“三个代表”重要思想为指导，紧密围绕学校党政中心工作，本着“建设、服务、发展、创新”的工作理念，以育人为核心，以思想为主导，以组织为保障，以党员培养为工作重点，用科学发展观统一党员思想，真正发挥了党支部的先锋模范作用。<br>
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp信息学生第二支部是一个年轻正在成长的党支部，激情与活力也是该支部最大的特征。该党支部团结、务实、创新，平时注重对党员的管理、教育和培训，能严格执行发展党员工作制度。在党员和群众中有较高的威信，具有较强的凝聚力、创造力和战斗力；坚持民主集中制，党员组织生活会、民主评议党员等制度落实效果显著，支部所属党员没有发生违法违纪等问题。党支部成立以来，支部在学院党总支的正确领导下，在党支部成员共同努力下，不断开拓进取，求实创新，为发展优良学风建设做出了积极努力（部分党员所在的班级获得优良学风班的称号），真正发挥了党支部的战斗堡垒作用。
   </div>
+ {%endblock%} 

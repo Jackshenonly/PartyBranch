@@ -1,16 +1,20 @@
 <!doctype html>
-<title>jackshen is cool</title>
+<title>jackshen</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 <div class=page>
-  <h1>信息学院学生第二党支部党员民主测评</h1>
+  <h1>{{head}}</h1>
   <div class=metanav>
-    <a href="{{ url_for('branch_profile') }}">简介</a>
-  {% if not session.username %}
+
     
-    <a href="{{ url_for('login') }}">登录</a>
+  {% if not session.username %}
+       <a href="{{ url_for('login') }}">登录</a>
   {% else %}
-    <a href="{{url_for('show_lists')}}">党员测评</a>
-    <a href="{{url_for('performance')}}">绩效测评</a>
+    <a href = {{ url_for('announce_lists')}}>公告</a>
+    <a href={{url_for('download')}}>各支部成员成绩下载</a>
+    <a href="{{url_for('show_departs')}}">支部列表</a>
+    
+    <a href={{url_for('personal_info',username = session.username)}}>设置</a>
+
     <a href="{{ url_for('logout') }}">退出</a>
   {% endif %}
   </div>
@@ -23,5 +27,16 @@
 
   {% endfor %}
 
+
   {% block body %}
+
+
   {% endblock %}
+
+
+  <div class = footer>
+    <p>Copyright &copy 2015Jackshen</p>
+  </div>
+
+
+

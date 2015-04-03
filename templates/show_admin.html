@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% if session.sadmin %}
+<div class = myleft>
+<ol>
+{% for admin in admins%}
+<li>{{admin[0]}},{{admin[1]}},{{admin[2]}}
+{% endfor %}
+</ol>
+</div>
+<form action ={{url_for('add_admin')}} method = post>
+	请输入帐号：
+	<input type = text name = no></input><input type = submit value = 添加></input>
+</form>
+{% endif %}
+
+{% endblock%}
