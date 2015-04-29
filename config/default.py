@@ -5,7 +5,7 @@ class Config(object):
 	#mysql
 	HOST = '127.0.0.1'
 	USER = 'root'
-	PASSWD = '123456'
+	PASSWD = 'root' #on ubuntu is 123456
 	DB = 'PartyInfo'
 	CHARSET = 'utf8'
 

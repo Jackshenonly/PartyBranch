@@ -22,8 +22,8 @@ create table user(
   nickname varchar(20) default null,
   sex varchar(2)  default null,
   major varchar(20) default null,
-  admin bit default 0,
-  sadmin bit default 0
+  admin int default 0,
+  sadmin int default 0
 );
 insert into user(no) values ('1212300104');
 insert into user(no) values ('1212300105');

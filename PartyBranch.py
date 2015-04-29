@@ -1,7 +1,6 @@
 ﻿# -*- coding: utf-8 -*-
 from __future__ import with_statement
 from config import load_config #绝对导入
-from sqlite3 import dbapi2 as sqlite3
 import MySQLdb
 
 from flask import Flask, request, session, g, redirect, url_for, abort, \
@@ -48,7 +47,7 @@ def download():
     if session['username']:
         #data is from db
         data = ['jike12A','jackshen','man']
-        f = open('./static/各支部成员成绩.xls','wb')
+        f = open(r'./static/各支部成员成绩.xls','wb')
         for x in data:
             f.write(x+"\t")
         f.close()
@@ -218,10 +217,10 @@ def login():
             if  (user) and (password == str(user[0])):
                session["username"] = username
 
-               if int(user[1])==1:
+               if user[1]==1:
                     session['admin']=True
         
-                    if int(user[2])==1:
+                    if user[2]==1:
                         session['sadmin']=True
 
                flash("Welcome!")
